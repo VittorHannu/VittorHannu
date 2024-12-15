@@ -1,0 +1,219 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+
+
+
+
+
+
+
+
+/* Body Styling */
+body {
+    background-color: #000000; /* Cor de fundo mais clara */
+    color: #333;
+    line-height: 1.7;
+    font-size: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+/* Hero Section */
+.hero {
+    padding: 150px 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 70px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 80px;
+}
+
+.hero p {
+    font-size: 30px;
+    margin-bottom: 80px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(72, 86, 86);
+}
+
+
+
+
+
+
+
+
+/* Header Styling */
+header {
+    padding: 50px 0;
+    box-shadow: 0 10px rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 30px;
+    padding: 5px 15px;
+    transition: color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.about-me, .homepage-aesthetic {
+    margin: 150px 150px;
+  }
+
+  
+.about-me h2 {
+    font-size: 2em;
+    color: #70f875;
+  }
+
+.about-me p {
+    color: #dcd7d7;
+    padding: 20px;
+}
+
+
+
+  .homepage-aesthetic h2 {
+    color: #70f875;
+    font-size: 2em;
+}
+
+  .homepage-aesthetic {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .experience {
+    align-items: center;
+
+  }
+  
+  
+  .info {
+    flex: 1;
+    color: #dcd7d7;
+    padding: 20px;
+  }
+  
+  .experience h3 {
+    font-size: 1.5em;
+  }
+  
+  .date {
+    color: rgb(183, 165, 165);
+    font-size: 1em;
+  }
+
+
+
+
+
+#skills-collumns {  /* para projects tambem vapo 3 colunas */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Dividir em 2 colunas de largura igual */
+    gap: 15px; /* Espaço entre as colunas */
+}
+
+
+
+
+#jobs-collumns {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dividir em 2 colunas de largura igual */
+    gap: 15px; /* Espaço entre as colunas */
+}
+
+
+
+
+
+
+
+
+/* Footer */
+footer {
+    padding: 40px 20px;
+    color: rgb(202, 166, 166);
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .article-cards, .research-cards, .trending-cards {
+        flex-direction: column;
+    }
+
+    .article-card, .research-card, .trending-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin-top: 20px;
+        display: block;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .cta-btn {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}

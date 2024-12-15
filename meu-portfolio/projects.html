@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos</title>
+    <link rel="stylesheet" href="css/projects.css">
+    <!-- Biblioteca Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+
+
+
+
+<body>
+
+
+
+
+
+
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-button">Home</a></li>
+                <li><a href="projects.html" class="nav-button">Projects</a></li>
+                <li><a href="Articles.html" class="nav-button">Articles</a></li>
+                <li><a href="lens.html" class="nav-button">Lens</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>The Education
+                <div>
+                    <span id="typed"></span>
+                </div>
+            </h1>
+            <p>Those are my projects being developed in university.</p>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Filter Section -->
+    <div class="filter-container">
+
+        <div class="filter-item" onclick="toggleFilter('Solo', this)">
+            <span>Solo</span>
+            <span class="remove-filter hidden">✖</span>
+        </div>
+
+        <div class="filter-item" onclick="toggleFilter('Team', this)">
+            <span>Team</span>
+            <span class="remove-filter hidden">✖</span>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Cards Section -->
+    <div class="card-container">
+
+
+        <div class="card Team">
+            <img src="assets-index/projects.png" alt="Card Image" class="card-image">
+            <div class="card-overlay">
+                <p class="card-title">Card Title</p>
+                <p class="card-date">December 15, 2024</p>
+            </div>
+        </div>
+
+
+        <div class="card Solo">
+            <img src="assets-index/projects.png" alt="Card Image" class="card-image">
+            <div class="card-overlay">
+                <p class="card-title">Card Title</p>
+                <p class="card-date">December 15, 2024</p>
+            </div>
+        </div>
+
+
+        <div class="card Solo">
+            <img src="assets-index/projects.png" alt="Card Image" class="card-image">
+            <div class="card-overlay">
+                <p class="card-title">Card Title</p>
+                <p class="card-date">December 15, 2024</p>
+            </div>
+        </div>
+
+        
+        <div class="card Team">
+            <img src="assets-index/projects.png" alt="Card Image" class="card-image">
+            <div class="card-overlay">
+                <p class="card-title">Card Title</p>
+                <p class="card-date">December 15, 2024</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Scripts -->
+    <script>
+        // Script de filtros
+        let selectedFilters = [];
+        
+        function toggleFilter(category, filterElement) {
+            const index = selectedFilters.indexOf(category);
+    
+            // Se o filtro já está selecionado, desmarque-o
+            if (index > -1) {
+                selectedFilters.splice(index, 1);
+                filterElement.classList.remove('selected');
+
+            }
+    
+            // Mostra ou esconde o "X" do filtro
+            filterElement.querySelector('.remove-filter').style.display = selectedFilters.includes(category) ? 'inline' : 'none';
+            
+            // Atualiza os cards com base nos filtros selecionados
+            filterCards();
+        }
+        
+        function filterCards() {
+            const cards = document.querySelectorAll('.card'); // Seleciona todos os cards
+    
+            cards.forEach(card => {
+                const cardClasses = Array.from(card.classList); // Converte as classes do card em um array
+    
+                // Verifica se o card tem todas as classes (categorias) dos filtros selecionados
+                const shouldShow = selectedFilters.every(filter => cardClasses.includes(filter));
+    
+                if (shouldShow || selectedFilters.length === 0) {
+                    card.classList.remove('hidden'); // Mostra o card
+                } else {
+                    card.classList.add('hidden'); // Esconde o card
+                }
+            });
+        }
+    </script>
+    
+    
+   
+    <script>
+        let hasTransformed = false; // Variável para garantir que "Transforma" só apareça uma vez
+
+window.addEventListener('scroll', function() {
+  const wordElement = document.querySelector('#typed');
+  const scrollPosition = window.scrollY;
+
+  if (scrollPosition > 1 && !hasTransformed) {  // Quando rolar mais de 1px e "Transforma" ainda não apareceu
+    wordElement.textContent = "Transforma";  // Substitui o ponto por "Transforma"
+    wordElement.classList.add("visible");  // Torna a palavra visível com o efeito de fade
+    hasTransformed = true;  // Marca que a palavra já apareceu
+  } else if (scrollPosition <= 1 && hasTransformed) {  // Quando rolar de volta ao topo
+    wordElement.textContent = "Transforma";  // Reseta o texto para o ponto
+    wordElement.classList.remove("visible");  // Remove a visibilidade da palavra
+    hasTransformed = false;  // Permite que "Transforma" apareça novamente após rolar
+  }
+});
+    </script>
+
+
+
+
+
+
+
+    <footer>
+        <p>&copy; 2024 Meu Portfólio</p>
+    </footer>
+
+
+
+
+
+
+</body>
+</html>
