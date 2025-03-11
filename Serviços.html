@@ -124,66 +124,51 @@
 
 
 
-    <!-- Scripts -->
-    <script>
-        // Script de filtros
-        let selectedFilters = [];
-        
-        function toggleFilter(category, filterElement) {
-            const index = selectedFilters.indexOf(category);
-    
-            // Se o filtro já está selecionado, desmarque-o
-            if (index > -1) {
-                selectedFilters.splice(index, 1);
-                filterElement.classList.remove('selected');
+<!-- Scripts -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Defina suas fontes e cores aleatórias
+        const fonts = ['"Arial"', '"Courier New"', '"Georgia"'];
+        const colors = ['#FF5733', '#33FF57', '#3357FF'];
 
+        // Selecione o elemento onde o texto será alterado
+        const wordElement = document.querySelector('#typed');
+        if (!wordElement) return;  // Verifica se o elemento existe antes de tentar acessar
+
+        // Função para alternar a fonte e a cor aleatoriamente
+        function changeStyleRandomly() {
+            const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            wordElement.style.fontFamily = randomFont;  // Altera a fonte
+            wordElement.style.color = randomColor;  // Altera a cor
+        }
+
+        // Altere a fonte e a cor a cada 2 segundos (2000 milissegundos)
+        setInterval(changeStyleRandomly, 2000);
+
+        // Variável para controlar a transformação do texto
+        let hasTransformed = false;
+
+        // Altere o texto ao rolar
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+
+            if (scrollPosition > 1 && !hasTransformed) {  // Quando rolar mais de 1px e "Transforma" ainda não apareceu
+                wordElement.textContent = "Transform";  // Substitui o ponto por "Transforma"
+                wordElement.classList.add("visible");  // Torna a palavra visível com o efeito de fade
+                hasTransformed = true;  // Marca que a palavra já apareceu
+            } else if (scrollPosition <= 1 && hasTransformed) {  // Quando rolar de volta ao topo
+                wordElement.textContent = "Transforma";  // Reseta o texto para "Transforma"
+                wordElement.classList.remove("visible");  // Remove a visibilidade da palavra
+                hasTransformed = false;  // Permite que "Transforma" apareça novamente após rolar
             }
-    
-            // Mostra ou esconde o "X" do filtro
-            filterElement.querySelector('.remove-filter').style.display = selectedFilters.includes(category) ? 'inline' : 'none';
-            
-            // Atualiza os cards com base nos filtros selecionados
-            filterCards();
-        }
-        
-        function filterCards() {
-            const cards = document.querySelectorAll('.card'); // Seleciona todos os cards
-    
-            cards.forEach(card => {
-                const cardClasses = Array.from(card.classList); // Converte as classes do card em um array
-    
-                // Verifica se o card tem todas as classes (categorias) dos filtros selecionados
-                const shouldShow = selectedFilters.every(filter => cardClasses.includes(filter));
-    
-                if (shouldShow || selectedFilters.length === 0) {
-                    card.classList.remove('hidden'); // Mostra o card
-                } else {
-                    card.classList.add('hidden'); // Esconde o card
-                }
-            });
-        }
-    </script>
-    
-    
-   
-    <script>
-        let hasTransformed = false; // Variável para garantir que "Transforma" só apareça uma vez
+        });
+    });
+</script>
 
-window.addEventListener('scroll', function() {
-  const wordElement = document.querySelector('#typed');
-  const scrollPosition = window.scrollY;
 
-  if (scrollPosition > 1 && !hasTransformed) {  // Quando rolar mais de 1px e "Transforma" ainda não apareceu
-    wordElement.textContent = "Transforma";  // Substitui o ponto por "Transforma"
-    wordElement.classList.add("visible");  // Torna a palavra visível com o efeito de fade
-    hasTransformed = true;  // Marca que a palavra já apareceu
-  } else if (scrollPosition <= 1 && hasTransformed) {  // Quando rolar de volta ao topo
-    wordElement.textContent = "Transforma";  // Reseta o texto para o ponto
-    wordElement.classList.remove("visible");  // Remove a visibilidade da palavra
-    hasTransformed = false;  // Permite que "Transforma" apareça novamente após rolar
-  }
-});
-    </script>
+
 
 
 

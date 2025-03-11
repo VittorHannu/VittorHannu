@@ -16,7 +16,7 @@
 
 /* Body Styling */
 body {
-    background-color: #000000; /* Cor de fundo mais clara */
+    background-color: #ffffff; /* Cor de fundo mais clara */
     color: #333;
     line-height: 1.7;
     font-size: 16px;
@@ -36,6 +36,7 @@ body {
     text-align: center;
     color: white;
     position: relative;
+    background-color: black;
 }
 
 .hero h1 {
